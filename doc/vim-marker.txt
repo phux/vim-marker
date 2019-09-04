@@ -1,0 +1,45 @@
+*vim-marker.txt*
+                                                                  *vim-marker*
+
+==============================================================================
+CONTENTS                                                 *vim-marker-contents*
+  1. Introduction...........................................|vim-marker-intro|
+  2. Configuration.........................................|vim-marker-config|
+  3. Functions..........................................|vim-marker-functions|
+
+==============================================================================
+INTRODUCTION                                                *vim-marker-intro*
+
+vim-marker provides a custom marker stack, persistent per working directory.
+
+==============================================================================
+CONFIGURATION                                              *vim-marker-config*
+
+                                                      *g:MarkerPersistenceDir*
+Path to store the marks. Will be created if doesn't exist. Default:
+$XDG_DATA_HOME/vim-marker
+
+                                                      *g:MarkerEnableMappings*
+Set to 0 to disable default mappings. Default: 1
+
+                                                   *g:MarkerToggleMarkMapping*
+Mapping to add or remove marker at current cursor position. Also works in the
+quickfix window. Default: <m-m>
+
+                                                     *g:MarkerNextMarkMapping*
+Mapping for jumping to next mark. Default: <m-j>
+
+                                                     *g:MarkerPrevMarkMapping*
+Mapping for jumping to previous mark. Default: <m-k>
+
+                                               *g:MarkerQuickfixToggleMapping*
+Toggle quickfix window with current marks populated. Default: <m-;>
+
+==============================================================================
+FUNCTIONS                                               *vim-marker-functions*
+
+marker#ResetMarkers()                                  *marker#ResetMarkers()*
+  Clears all markers for current working directory.
+
+
+vim:tw=78:ts=8:ft=help:norl:
