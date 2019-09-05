@@ -1,7 +1,16 @@
 # vim-marker
 
-vim-marker provides a custom marker stack that is stored per working
+![screenshot of vim-marker](doc/screenshot.png)
+
+vim-marker provides a custom mark stack that is stored per working
 directory.
+
+**Features**
+
+* toggle marks
+* cycle through marks across buffers
+* persistent
+* populate all marks in a quickfix window
 
 ## Configuration
 
