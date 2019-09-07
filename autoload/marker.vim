@@ -3,7 +3,7 @@ let s:marker_stack_pos = 0
 
 function! marker#ToggleMark()
   let l:currentFile = expand('%:p')
-  if l:currentFile ==#  ""
+  if l:currentFile ==# ''
     if &buftype ==# 'quickfix'
       call marker#DeleteFromQuickfix()
     endif
@@ -26,7 +26,8 @@ function! marker#ToggleMark()
     let l:text = ' '
   endif
 
-  call add(s:marker_stack, {'file': l:currentFile, 'cursor': l:pos, 'text': l:text})
+  let l:qfix = l:currentFile . ':' . l:pos[1] . ':' . l:text
+  call add(s:marker_stack, {'file': l:currentFile, 'cursor': l:pos, 'text': l:text, 'qfix': l:qfix})
   let s:marker_stack_pos = len(s:marker_stack) - 1
   let s:qf_stale = 1
   echo 'mark set'
@@ -93,7 +94,7 @@ function! marker#RefreshQuickfix()
 
   call setqflist([])
   for position in s:marker_stack
-    caddexpr position['file'] . ":" . position['cursor'][1] . ':' . position['text']
+    caddexpr position["qfix"]
   endfor
 
   let s:qf_stale = 0
